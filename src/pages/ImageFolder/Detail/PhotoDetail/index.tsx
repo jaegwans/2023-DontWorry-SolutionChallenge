@@ -25,7 +25,14 @@ function PhotoDetail() {
     <>
       <Nav />
       <StyledImageWrapper>
-        {/* <Image src={Router?.query?.imageSrc as string} alt="imageDetail" fill /> */}
+        {Router.isReady ? (
+          <Image
+            src={Router?.query?.imageSrc as string | ""}
+            alt="imageDetail"
+            fill
+          />
+        ) : null}
+
         <a href={downloadUrl} download>
           <StyledBtn>save as file</StyledBtn>
         </a>
