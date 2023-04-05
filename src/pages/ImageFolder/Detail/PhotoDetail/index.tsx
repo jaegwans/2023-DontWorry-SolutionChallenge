@@ -11,8 +11,8 @@ function PhotoDetail() {
 
   useEffect(() => {
     async function download() {
-      console.log(Router.query.imageSrc);
-      const res = await fetch(Router.query.downloadSrc as string | "");
+      console.log(Router?.query?.imageSrc);
+      const res = await fetch(Router?.query?.downloadSrc as string | "");
       const blob = await res.blob();
       setDownloadUrl(window.URL.createObjectURL(blob));
     }
@@ -25,7 +25,7 @@ function PhotoDetail() {
     <>
       <Nav />
       <StyledImageWrapper>
-        <Image src={Router.query.imageSrc as string} alt="imageDetail" fill />
+        <Image src={Router?.query?.imageSrc as string} alt="imageDetail" fill />
         <a href={downloadUrl} download>
           <StyledBtn>save as file</StyledBtn>
         </a>
