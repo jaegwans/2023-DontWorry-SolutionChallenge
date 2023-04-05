@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 function PhotoDetail() {
   const [downloadUrl, setDownloadUrl] = useState<any>();
+  const [imgSrc, setImgSrc] = useState<string>("");
 
   useEffect(() => {
     async function download() {
@@ -15,6 +16,7 @@ function PhotoDetail() {
       const res = await fetch(Router?.query?.downloadSrc as string | "");
       const blob = await res.blob();
       setDownloadUrl(window.URL.createObjectURL(blob));
+      setImgSrc(Router.query.imageSrc as string);
     }
     if (Router.isReady) {
       download();
@@ -25,13 +27,7 @@ function PhotoDetail() {
     <>
       <Nav />
       <StyledImageWrapper>
-        {Router.isReady ? (
-          <Image
-            src={Router?.query?.imageSrc as string | ""}
-            alt="imageDetail"
-            fill
-          />
-        ) : null}
+        {Router.isReady ? <Image src={imgSrc} alt="imageDetail" fill /> : null}
 
         <a href={downloadUrl} download>
           <StyledBtn>save as file</StyledBtn>
