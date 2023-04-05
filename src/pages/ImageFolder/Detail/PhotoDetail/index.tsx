@@ -9,17 +9,17 @@ import styled from "styled-components";
 function PhotoDetail() {
   const [downloadUrl, setDownloadUrl] = useState<any>();
 
-  //   useEffect(() => {
-  //     async function download() {
-  //       console.log(Router?.query?.imageSrc);
-  //       const res = await fetch(Router?.query?.downloadSrc as string | "");
-  //       const blob = await res.blob();
-  //       setDownloadUrl(window.URL.createObjectURL(blob));
-  //     }
-  //     if (Router.isReady) {
-  //       download();
-  //     }
-  //   }, []);
+  useEffect(() => {
+    async function download() {
+      console.log(Router?.query?.imageSrc);
+      const res = await fetch(Router?.query?.downloadSrc as string | "");
+      const blob = await res.blob();
+      setDownloadUrl(window.URL.createObjectURL(blob));
+    }
+    if (Router.isReady) {
+      download();
+    }
+  }, []);
 
   return (
     <>
