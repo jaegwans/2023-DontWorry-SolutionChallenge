@@ -12,7 +12,7 @@ function PhotoDetail() {
   useEffect(() => {
     async function download() {
       console.log(Router.query.imageSrc);
-      const res = await fetch(Router.query.downloadSrc as string);
+      const res = await fetch(Router.query.downloadSrc as string | "");
       const blob = await res.blob();
       setDownloadUrl(window.URL.createObjectURL(blob));
     }
