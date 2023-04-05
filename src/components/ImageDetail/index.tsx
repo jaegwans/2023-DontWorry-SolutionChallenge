@@ -9,10 +9,10 @@ import {
 } from "src/constants/motion";
 import PhotoDetail from "src/pages/ImageFolder/Detail/PhotoDetail";
 import styled, { css } from "styled-components";
-interface IImageDetail {
-  imageSrc: string;
-}
-function ImageDetail({ imageSrc }: IImageDetail) {
+
+interface IImageSrc {}
+
+function ImageDetail({ imageSrc }: any) {
   const router = useRouter();
   function onClickImage() {
     router.push({
